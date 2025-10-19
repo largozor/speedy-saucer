@@ -13,10 +13,10 @@ func _physics_process(delta: float) -> void:
 	var force = 1000
 	if Input.is_action_pressed("move_right"):
 		apply_force(Vector2(force,0))
-	elif Input.is_action_pressed("move_left"):
+	if Input.is_action_pressed("move_left"):
 		apply_force(Vector2(-force,0))
-	elif Input.is_action_pressed("move_up"):
+	if Input.is_action_pressed("move_up"):
 		apply_force(Vector2(0, -force))
-	elif Input.is_action_pressed("move_down"):
+	if Input.is_action_pressed("move_down"):
 		apply_force(Vector2(0, force))
 	pass
