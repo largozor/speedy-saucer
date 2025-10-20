@@ -21,3 +21,6 @@ position = Vector2(74, 73)
 [node name="Maze" parent="." instance=ExtResource("4_ihfcg")]
 position = Vector2(73, 70)
 scale = Vector2(2, 2)
+
+[connection signal="body_entered" from="Maze" to="." method="_on_maze_body_entered"]
+[connection signal="body_exited" from="Maze" to="." method="_on_maze_body_exited"]
