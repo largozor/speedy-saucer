@@ -18,6 +18,8 @@ texture = ExtResource("1_4flbx")
 shape = SubResource("CircleShape2D_4flbx")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+process_callback = 0
+position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true

@@ -1,19 +1,67 @@
-[gd_scene load_steps=5 format=3 uid="uid://cvax3us3mip72"]
+[gd_scene load_steps=8 format=3 uid="uid://cvax3us3mip72"]
 
 [ext_resource type="Texture2D" uid="uid://bvtw0uabb401f" path="res://purple.png" id="1_3hls8"]
 [ext_resource type="Script" uid="uid://dmw74wvt4wjbf" path="res://level_1.gd" id="1_hn12h"]
 [ext_resource type="PackedScene" uid="uid://cw246hcbfnd6c" path="res://player.tscn" id="2_hbghi"]
 [ext_resource type="PackedScene" uid="uid://b3fs1yoxqnpub" path="res://maze.tscn" id="4_ihfcg"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_ihfcg"]
+font_size = 38
+
+[sub_resource type="LabelSettings" id="LabelSettings_5hph3"]
+font_size = 18
+
+[sub_resource type="LabelSettings" id="LabelSettings_rka8t"]
+font_size = 38
+
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_hn12h")
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Graphics" type="Node" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Graphics"]
+layer = -10
+
+[node name="Background" type="TextureRect" parent="Graphics/CanvasLayer"]
 z_index = -100
-offset_right = 1152.0
-offset_bottom = 648.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("1_3hls8")
 stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Start" type="Label" parent="Graphics"]
+z_index = -5
+offset_left = 18.0
+offset_top = -69.0
+offset_right = 131.0
+offset_bottom = -16.0
+text = "START"
+label_settings = SubResource("LabelSettings_ihfcg")
+
+[node name="Tutorial" type="Label" parent="Graphics"]
+z_index = -5
+offset_left = -470.0
+offset_top = -55.0
+offset_right = 514.0
+offset_bottom = 184.0
+text = "Rules:
+WASD or arrow keys
+Go from the start to the end 
+without exiting the maze"
+label_settings = SubResource("LabelSettings_5hph3")
+
+[node name="Finish" type="Label" parent="Graphics"]
+z_index = -5
+offset_left = 982.0
+offset_top = -84.0
+offset_right = 1105.0
+offset_bottom = -31.0
+text = "FINISH"
+label_settings = SubResource("LabelSettings_rka8t")
 
 [node name="Player" parent="." instance=ExtResource("2_hbghi")]
 position = Vector2(74, 73)
